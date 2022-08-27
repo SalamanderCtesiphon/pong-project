@@ -61,7 +61,12 @@ while True:
 
     player_animation()
     ball_animation()
-    player.y += player_speed
+    if opponent.top < ball.y:
+        opponent.top += opponent_speed
+    if opponent.bottom > ball.y:
+        opponent.bottom -= opponent_speed
+        
+    
 
 
     screen.fill(bg_color)
