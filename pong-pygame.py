@@ -23,11 +23,13 @@ while True:
             pygame.quit()
             sys.exit
 
-
+    screen.fill(bg_color)
     pygame.draw.rect(screen,light_grey,player)
     pygame.draw.rect(screen,light_grey,opponent)
     pygame.draw.ellipse(screen,light_grey,ball)
-    
+    pygame.draw.aaline(screen, light_grey, (screen_width/2,0), (
+        screen_width/2,screen_height
+    ))
 
     pygame.display.flip()
     clock.tick(60)
