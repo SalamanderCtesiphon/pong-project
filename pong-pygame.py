@@ -32,21 +32,34 @@ light_grey = (200,200,200)
 
 ball_speed_x = 7
 ball_speed_y = 7
+player_speed = 0
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit
+        if event.type == pygame.KEYDOWN:
+            if event.type == pygame.K_DOWN:
+                player_speed += 7
+            if event.type == pygame.K_UP:
+                player_speed -= 7
+        if event.type == pygame.KEYUP:
+            if event.type == pygame.K_DOWN:
+                player_speed -= 7
+            if event.type == pygame.K_UP:
+                player_speed += 7        
 
-    ball_animation()         
+    ball_animation()
+    player.y += player_speed
+
 
     screen.fill(bg_color)
     pygame.draw.rect(screen,light_grey,player)
     pygame.draw.rect(screen,light_grey,opponent)
     pygame.draw.ellipse(screen,light_grey,ball)
-    pygame.draw.aaline(screen, light_grey, (screen_width/2,0), (
-        screen_width/2,screen_height
+    pygame.draw.aaline(screen, light_grey,
+     (screen_width/2,0), (screen_width/2,screen_height
     ))
 
     pygame.display.flip()
