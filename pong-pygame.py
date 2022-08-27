@@ -13,7 +13,16 @@ def ball_animation():
         ball_speed_x *= -1
 
     if ball .colliderect(player) or ball.colliderect(opponent):
-        ball_speed_x *= -1 
+        ball_speed_x *= -1
+
+def player_animation():
+    player.y += player_speed
+
+    if player.top <= 0:
+        player.top = 0
+    if player.bottom >= screen_height:
+        player.bottom = screen_height
+             
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -38,18 +47,19 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            sys.exit
+            sys.exit ()
         if event.type == pygame.KEYDOWN:
-            if event.type == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN:
                 player_speed += 7
-            if event.type == pygame.K_UP:
+            if event.key == pygame.K_UP:
                 player_speed -= 7
         if event.type == pygame.KEYUP:
-            if event.type == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN:
                 player_speed -= 7
-            if event.type == pygame.K_UP:
-                player_speed += 7        
+            if event.key == pygame.K_UP:
+                player_speed += 7
 
+    player_animation()
     ball_animation()
     player.y += player_speed
 
