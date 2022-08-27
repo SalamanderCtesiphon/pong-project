@@ -1,0 +1,1 @@
+I stopped on player animation. It wasn't working on my version. I am calling it quits for today.
