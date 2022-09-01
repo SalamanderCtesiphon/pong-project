@@ -88,7 +88,7 @@ while True:
     opponent_animation()    
     
 
-
+    #comments disabled
     screen.fill(bg_color)
     pygame.draw.rect(screen,light_grey,player)
     pygame.draw.rect(screen,light_grey,opponent)
