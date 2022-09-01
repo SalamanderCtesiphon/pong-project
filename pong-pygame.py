@@ -1,6 +1,7 @@
 from webbrowser import get
 import pygame, sys, random
 
+#add ball animation function
 def ball_animation():
     global ball_speed_x, ball_speed_y
 
@@ -14,6 +15,8 @@ def ball_animation():
 
     if ball.colliderect(opponent) or ball.colliderect(player):
         ball_speed_x *= -1
+
+# add player animation function
 
 def player_animation():
     player.y += player_speed
